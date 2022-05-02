@@ -1,6 +1,6 @@
 # Ansible Role for Headscale
 
-An Ansible Role that installs and manages [Headscale](https://github.com/juanfont/headscale) on Linux.
+A role that installs and manages [Headscale](https://github.com/juanfont/headscale) on Linux.
 
 ## Requirements
 

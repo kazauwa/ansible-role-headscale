@@ -1,0 +1,30 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: headscale
+  author: kazauwa
+  description: Headscale control server for tailscale.
+  issue_tracker_url: https://github.com/kazauwa/anisble-role-headscale/issues
+  license: "MIT"
+  min_ansible_version: 2.9
+  platforms:
+    - name: EL
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - wireguard
+    - headscale
+    - tailscale
+    - tailscale-server
+    - tailscale-control-server
+    - vpn
