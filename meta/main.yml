@@ -25,6 +25,6 @@ galaxy_info:
     - wireguard
     - headscale
     - tailscale
-    - tailscale-server
-    - tailscale-control-server
+    - control
+    - server
     - vpn
