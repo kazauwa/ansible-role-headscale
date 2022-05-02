@@ -1,0 +1,25 @@
+---
+# This workflow requires a GALAXY_API_KEY secret present in the GitHub
+# repository or organization.
+#
+# See: https://github.com/marketplace/actions/publish-ansible-role-to-galaxy
+# See: https://github.com/ansible/galaxy/issues/46
+
+name: Release to galaxy
+on:
+  push:
+    tags:
+      - '*'
+defaults:
+  run:
+    working-directory: 'kazauwa.headscale'
+jobs:
+  release:
+    name: Release to galaxy
+    runs-on: ubuntu-latest
+    steps:
+      - name: galaxy
+        uses: robertdebock/galaxy-action@1.2.0
+        with:
+          galaxy_api_key: ${{ secrets.GALAXY_API_KEY }}
+          git_branch: main
