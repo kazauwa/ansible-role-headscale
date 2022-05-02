@@ -1,0 +1,52 @@
+---
+- name: Create headscale user group
+  group:
+    name: '{{ headscale_user_group }}'
+    gid: '{{ headscale_user_gid }}'
+    system: true
+    state: present
+
+- name: Create headscale user
+  user:
+    name: '{{ headscale_user_name }}'
+    uid: '{{ headscale_user_uid }}'
+    group: '{{ headscale_user_group }}'
+    shell: /bin/false
+    system: true
+    create_home: false
+
+- name: Download headscale binary
+  get_url:
+    url: 'https://github.com/juanfont/headscale/releases/download/v{{ headscale_version }}/headscale_{{ headscale_version }}_linux_{{ headscale_arch }}'
+    dest: '{{ headscale_binary_path }}'
+    owner: '{{ headscale_user_uid }}'
+    group: '{{ headscale_user_gid }}'
+    mode: 0770
+
+- name: Ensure headscale directories exist
+  file:
+    path: '{{ item }}'
+    state: directory
+    owner: '{{ headscale_user_name }}'
+    group: '{{ headscale_user_group }}'
+    mode: 0700
+  loop: '{{ headscale_directories }}'
+
+- name: Ensure sqlite exists
+  file:
+    path: '{{ headscale_var_data_dir }}/db.sqlite'
+    state: touch
+    owner: '{{ headscale_user_uid }}'
+    group: '{{ headscale_user_gid }}'
+    mode: 0600
+    modification_time: preserve
+    access_time: preserve
+
+- name: Copy systemd unit file
+  template:
+    src: 'etc/systemd/system/headscale.service.j2'
+    dest: '/etc/systemd/system/headscale.service'
+    owner: '{{ headscale_user_uid }}'
+    group: '{{ headscale_user_gid }}'
+    mode: 0600
+  notify: restart headscale

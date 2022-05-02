@@ -1,0 +1,25 @@
+---
+- name: Copy configuration file
+  copy:
+    content: '{{ headscale_config | to_yaml }}'
+    dest: '{{ headscale_config_dir }}/config.yaml'
+    owner: '{{ headscale_user_uid }}'
+    group: '{{ headscale_user_gid }}'
+    mode: 0600
+  notify: restart headscale
+
+- name: Copy ACL policies file
+  copy:
+    content: '{{ headscale_acl | to_yaml }}'
+    dest: '{{ headscale_config_dir }}/acl.yaml'
+    owner: '{{ headscale_user_uid }}'
+    group: '{{ headscale_user_gid }}'
+    mode: 0600
+  notify: restart headscale
+
+- name: Ensure predefined namespaces exist
+  command:
+    cmd: 'headscale namespaces create {{ item }}'
+  loop: '{{ headscale_namespaces }}'
+  register: namespace_created
+  changed_when: '"Namespace created" in namespace_created.stdout'

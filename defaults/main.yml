@@ -1,0 +1,20 @@
+---
+headscale_version: '0.15.0'
+headscale_arch: 'amd64'
+headscale_user_name: 'headscale'
+headscale_user_group: '{{ headscale_user_name }}'
+headscale_user_uid: '800'
+headscale_user_gid: '{{ headscale_user_uid }}'
+
+headscale_binary_path: '/usr/local/bin/headscale'
+headscale_config_dir: '/etc/headscale'
+headscale_var_data_dir: '/var/lib/headscale'
+headscale_pid_dir: '/var/run/headscale'
+headscale_directories:
+  - '{{ headscale_config_dir }}'
+  - '{{ headscale_var_data_dir }}'
+  - '{{ headscale_pid_dir }}'
+
+headscale_config: {}
+headscale_acl: {}
+headscale_namespaces: []

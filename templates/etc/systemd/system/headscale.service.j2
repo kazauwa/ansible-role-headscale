@@ -1,0 +1,25 @@
+[Unit]
+Description=headscale coordination server
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+Environment=GIN_MODE=release
+User={{ headscale_user_name }}
+Group={{ headscale_user_group }}
+ExecStart={{ headscale_binary_path }} serve
+Restart=always
+RestartSec=5
+
+# Optional security enhancements
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths={{ headscale_var_data_dir }} {{ headscale_pid_dir }}
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+RuntimeDirectory={{ headscale_user_name }}
+
+[Install]
+WantedBy=multi-user.target
