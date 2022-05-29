@@ -1,0 +1,16 @@
+---
+- name: Enable routes for node
+  command:
+    cmd: 'headscale routes enable -i {{ item.id }} -r {{ item.routes }}'
+  loop: '{{ headscale_enable_routes }}'
+  loop_control:
+    label: '{{ item.comment | default(item) }}'
+  when: not ansible_check_mode
+
+- name: Enable exit nodes
+  command:
+    cmd: 'headscale routes enable -i {{ item.id }} -r 0.0.0.0/0,::/0'
+  loop: '{{ headscale_exit_nodes }}'
+  loop_control:
+    label: '{{ item.comment | default(item) }}'
+  when: not ansible_check_mode

@@ -8,3 +8,8 @@
   tags:
     - headscale
     - headscale-configure
+
+- import_tasks: enable_routes.yml
+  tags:
+    - headscale
+    - headscale-routes
