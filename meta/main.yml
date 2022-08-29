@@ -5,7 +5,7 @@ galaxy_info:
   role_name: headscale
   author: kazauwa
   description: Headscale control server for tailscale.
-  issue_tracker_url: https://github.com/kazauwa/anisble-role-headscale/issues
+  issue_tracker_url: https://github.com/kazauwa/ansible-role-headscale/issues
   license: "MIT"
   min_ansible_version: 2.9
   platforms:
