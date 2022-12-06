@@ -51,11 +51,11 @@ A role that installs and manages [Headscale](https://github.com/juanfont/headsca
   - Description: list of namespaces to create, e.g. to use with tagOwners.
 - `headscale_enable_routes`
   - Default: `[]`
-  - Description: list of nodes with advertised routes to enable. Accepts an integer id of headscale node, list of comma-separated routes and an optional comment to output during execution.
+  - Description: list of nodes with advertised routes to enable. Accepts an integer id of headscale node, list of comma-separated routes and an optional comment to output during execution. Used when [autoApprovers](https://tailscale.com/kb/1018/acls/#auto-approvers-for-routes-and-exit-nodes) are not set.
   - Example: `{'id': 14, 'routes': '10.0.0.0/24,10.2.3.4/32', 'comment': 'Gateway to prod'}`
 - `headscale_exit_nodes`
   - Default: `[]`
-  - Description: list of nodes acting as an exit node. Accepts an integer id of headscale node and an optional comment to output during execution.
+  - Description: list of nodes acting as an exit node. Accepts an integer id of headscale node and an optional comment to output during execution. Used when [autoApprovers](https://tailscale.com/kb/1018/acls/#auto-approvers-for-routes-and-exit-nodes) are not set.
   - Example: `{'id': 14, 'comment': 'eu-fra-01'}`
 
 ## Dependencies
