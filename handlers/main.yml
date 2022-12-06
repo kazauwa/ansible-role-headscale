@@ -6,3 +6,9 @@
     enabled: true
     daemon-reload: true
   listen: 'restart headscale'
+
+- name: Reload headscale
+  service:
+    name: headscale
+    state: reloaded
+  listen: 'reload headscale'

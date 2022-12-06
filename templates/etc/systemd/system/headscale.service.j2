@@ -9,6 +9,7 @@ Environment=GIN_MODE=release
 User={{ headscale_user_name }}
 Group={{ headscale_user_group }}
 ExecStart={{ headscale_binary_path }} serve
+ExecReload=kill -HUP $MAINPID
 Restart=always
 RestartSec=5
 
