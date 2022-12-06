@@ -6,7 +6,7 @@
     owner: '{{ headscale_user_uid }}'
     group: '{{ headscale_user_gid }}'
     mode: 0600
-  notify: restart headscale
+  notify: reload headscale
 
 - name: Copy ACL policies file
   copy:
@@ -15,7 +15,7 @@
     owner: '{{ headscale_user_uid }}'
     group: '{{ headscale_user_gid }}'
     mode: 0600
-  notify: restart headscale
+  notify: reload headscale
 
 - name: Ensure predefined namespaces exist
   command:
