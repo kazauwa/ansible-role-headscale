@@ -1,5 +1,5 @@
 ---
-headscale_version: '0.17.1'
+headscale_version: '0.20.0'
 headscale_arch: 'amd64'
 headscale_user_name: 'headscale'
 headscale_user_group: '{{ headscale_user_name }}'
