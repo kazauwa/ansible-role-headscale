@@ -22,6 +22,7 @@
     owner: '{{ headscale_user_uid }}'
     group: '{{ headscale_user_gid }}'
     mode: 0770
+  notify: restart headscale
 
 - name: Ensure headscale directories exist
   file:
