@@ -68,7 +68,7 @@ None.
       roles:
         - kazauwa.headscale
       vars:
-        headscale_version: '0.17.1'
+        headscale_version: '0.20.0'
 
 ## License
 
