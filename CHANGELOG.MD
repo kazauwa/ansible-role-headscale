@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 1.3.0 (2023-02-16)
+
+### Breaking
+
+- Rename `namespaces` to `users` to align with changes to Headscale (see [0.19.0 release notes](https://github.com/juanfont/headscale/blob/main/CHANGELOG.md#0190-2023-01-29)) ([d1a83ac](https://github.com/kazauwa/ansible-role-headscale/commit/d1a83ac74239f32756c8ae4aa0224c4ac01cf930))
+
+### Changes
+
+- Fix triggering changed state in Ansible caused by `headscale_pid_dir` mode ([be60f3c](https://github.com/kazauwa/ansible-role-headscale/commit/be60f3cf31578e68a27e6a86727ad6709c319948))
+- Restart Headscale after update ([3cc93d7](https://github.com/kazauwa/ansible-role-headscale/commit/3cc93d74267212c33dc2f7858247c399db030173))
+
+
 ## 1.2.0 (2022-12-06)
 
 ### Changes
