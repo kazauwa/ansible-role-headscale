@@ -17,6 +17,6 @@ headscale_directories:
 
 headscale_config: {}
 headscale_acl: {}
-headscale_namespaces: []
+headscale_users: []
 headscale_enable_routes: []
 headscale_exit_nodes: []
