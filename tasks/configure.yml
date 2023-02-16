@@ -17,9 +17,9 @@
     mode: 0600
   notify: reload headscale
 
-- name: Ensure predefined namespaces exist
+- name: Ensure predefined users exist
   command:
-    cmd: 'headscale namespaces create {{ item }}'
-  loop: '{{ headscale_namespaces }}'
-  register: namespace_created
-  changed_when: '"Namespace created" in namespace_created.stdout'
+    cmd: 'headscale users create {{ item }}'
+  loop: '{{ headscale_users }}'
+  register: user_created
+  changed_when: '"User created" in user_created.stdout'

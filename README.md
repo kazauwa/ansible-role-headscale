@@ -46,9 +46,9 @@ A role that installs and manages [Headscale](https://github.com/juanfont/headsca
 - `headscale_acl`
   - Default: `{}`
   - Description: yaml formatted ACL policies. **Make sure** that you've read the [docs](https://github.com/juanfont/headscale/tree/main/docs#policy-acls) on how to use this feature.
-- `headscale_namespaces`
+- `headscale_users`
   - Default: `[]`
-  - Description: list of namespaces to create, e.g. to use with tagOwners.
+  - Description: list of users to create, e.g. to use with tagOwners.
 - `headscale_enable_routes`
   - Default: `[]`
   - Description: list of nodes with advertised routes to enable. Accepts an integer id of headscale node, list of comma-separated routes and an optional comment to output during execution. Used when [autoApprovers](https://tailscale.com/kb/1018/acls/#auto-approvers-for-routes-and-exit-nodes) are not set.
