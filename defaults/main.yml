@@ -16,6 +16,7 @@ headscale_directories:
   - '{{ headscale_pid_dir }}'
 
 headscale_config: {}
+headscale_config_template: ""
 headscale_acl: {}
 headscale_users: []
 headscale_enable_routes: []
