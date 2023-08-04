@@ -12,7 +12,7 @@ A role that installs and manages [Headscale](https://github.com/juanfont/headsca
 ## Role Variables
 
 - `headscale_version`
-  - Default: `0.20.0`
+  - Default: `0.22.3`
   - Description: version of Headscale to install. List of avaliable versions can be found on [official releases page](https://github.com/juanfont/headscale/releases). Defaults to the latest avaliable.
 - `headscale_arch`
   - Default: `amd64`
