@@ -44,6 +44,9 @@ A role that installs and manages [Headscale](https://github.com/juanfont/headsca
 - `headscale_config`
   - Default: `{}`
   - Description: yaml formatted headscale config, consider using [default config](https://github.com/juanfont/headscale/blob/main/config-example.yaml) as a starting point.
+- `headscale_config_template`
+  - Default: `""`
+  - Description: path to Jinja2 formatted headscale config template. If present, will override `headscale_config`.
 - `headscale_acl`
   - Default: `{}`
   - Description: yaml formatted ACL policies. **Make sure** that you've read the [docs](https://github.com/juanfont/headscale/tree/main/docs#policy-acls) on how to use this feature.
