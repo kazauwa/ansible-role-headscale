@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.3.1 (2023-08-09)
+
+### Changes
+
+- Add support for config template, see `headscale_config_template` variable ([80c6157](https://github.com/kazauwa/ansible-role-headscale/commit/80c6157e31d98a6534c226230ea4ad2ca8e27950))
+- Bump default Headscale version to v0.22.3 ([96f42b3](https://github.com/kazauwa/ansible-role-headscale/commit/96f42b337db89e78919b4b9adb9382887c4f4c73))
+
+
 ## 1.3.0 (2023-02-16)
 
 ### Breaking
