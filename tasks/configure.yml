@@ -7,7 +7,7 @@
     owner: "{{ headscale_user_uid }}"
     group: "{{ headscale_user_gid }}"
     mode: "0600"
-  notify: reload headscale
+  notify: restart headscale
 
 - name: Copy configuration file template
   when: headscale_config_template
@@ -17,7 +17,7 @@
     owner: "{{ headscale_user_uid }}"
     group: "{{ headscale_user_gid }}"
     mode: "0600"
-  notify: reload headscale
+  notify: restart headscale
 
 - name: Copy ACL policies file
   copy:
@@ -26,7 +26,7 @@
     owner: '{{ headscale_user_uid }}'
     group: '{{ headscale_user_gid }}'
     mode: 0600
-  notify: reload headscale
+  notify: restart headscale
 
 - name: Ensure predefined users exist
   command:
