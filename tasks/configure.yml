@@ -28,6 +28,9 @@
     mode: 0600
   notify: restart headscale
 
+- name: Flush handlers to ensure the service is started before creating users
+  ansible.builtin.meta: flush_handlers
+
 - name: Ensure predefined users exist
   command:
     cmd: 'headscale users create {{ item }}'
