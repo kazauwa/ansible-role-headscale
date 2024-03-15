@@ -51,3 +51,8 @@
     group: '{{ headscale_user_gid }}'
     mode: 0600
   notify: restart headscale
+
+- name: Enable headscale service
+  ansible.builtin.systemd_service:
+    name: headscale
+    enabled: true
