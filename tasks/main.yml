@@ -1,15 +1,18 @@
 ---
-- ansible.builtin.import_tasks: install.yml
+- name: Install headscale binary
+  ansible.builtin.import_tasks: install.yml
   tags:
     - headscale
     - headscale-install
 
-- ansible.builtin.import_tasks: configure.yml
+- name: Configure headscale
+  ansible.builtin.import_tasks: configure.yml
   tags:
     - headscale
     - headscale-configure
 
-- ansible.builtin.import_tasks: enable_routes.yml
+- name: Optional | Enable advertised routes
+  ansible.builtin.import_tasks: enable_routes.yml
   tags:
     - headscale
     - headscale-routes
