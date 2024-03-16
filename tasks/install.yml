@@ -1,13 +1,13 @@
 ---
 - name: Create headscale user group
-  group:
+  ansible.builtin.group:
     name: '{{ headscale_user_group }}'
     gid: '{{ headscale_user_gid }}'
     system: true
     state: present
 
 - name: Create headscale user
-  user:
+  ansible.builtin.user:
     name: '{{ headscale_user_name }}'
     uid: '{{ headscale_user_uid }}'
     group: '{{ headscale_user_group }}'
@@ -16,7 +16,7 @@
     create_home: false
 
 - name: Download headscale binary
-  get_url:
+  ansible.builtin.get_url:
     url: 'https://github.com/juanfont/headscale/releases/download/v{{ headscale_version }}/headscale_{{ headscale_version }}_{{ headscale_os }}_{{ headscale_arch }}'
     dest: '{{ headscale_binary_path }}'
     owner: '{{ headscale_user_uid }}'
@@ -25,7 +25,7 @@
   notify: restart headscale
 
 - name: Ensure headscale directories exist
-  file:
+  ansible.builtin.file:
     path: '{{ item }}'
     state: directory
     owner: '{{ headscale_user_name }}'
@@ -34,7 +34,7 @@
   loop: '{{ headscale_directories }}'
 
 - name: Ensure sqlite exists
-  file:
+  ansible.builtin.file:
     path: '{{ headscale_var_data_dir }}/db.sqlite'
     state: touch
     owner: '{{ headscale_user_uid }}'
@@ -44,7 +44,7 @@
     access_time: preserve
 
 - name: Copy systemd unit file
-  template:
+  ansible.builtin.template:
     src: 'etc/systemd/system/headscale.service.j2'
     dest: '/etc/systemd/system/headscale.service'
     owner: '{{ headscale_user_uid }}'
@@ -53,6 +53,6 @@
   notify: restart headscale
 
 - name: Enable headscale service
-  systemd:
+  ansible.builtin.systemd_service:
     name: headscale
     enabled: true

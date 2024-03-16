@@ -1,7 +1,7 @@
 ---
 - name: Copy configuration file
   when: headscale_config
-  copy:
+  ansible.builtin.copy:
     content: "{{ headscale_config | to_yaml }}"
     dest: "{{ headscale_config_dir }}/config.yaml"
     owner: "{{ headscale_user_uid }}"
@@ -11,7 +11,7 @@
 
 - name: Copy configuration file template
   when: headscale_config_template
-  template:
+  ansible.builtin.template:
     src: "{{ headscale_config_template }}"
     dest: "{{ headscale_config_dir }}/config.yaml"
     owner: "{{ headscale_user_uid }}"
@@ -20,7 +20,7 @@
   notify: restart headscale
 
 - name: Copy ACL policies file
-  copy:
+  ansible.builtin.copy:
     content: '{{ headscale_acl | to_yaml }}'
     dest: '{{ headscale_config_dir }}/acl.yaml'
     owner: '{{ headscale_user_uid }}'
@@ -29,10 +29,10 @@
   notify: restart headscale
 
 - name: Flush handlers to ensure the service is started before creating users
-  meta: flush_handlers
+  ansible.builtin.meta: flush_handlers
 
 - name: Ensure predefined users exist
-  command:
+  ansible.builtin.command:
     cmd: 'headscale users create {{ item }}'
   loop: '{{ headscale_users }}'
   register: user_created
