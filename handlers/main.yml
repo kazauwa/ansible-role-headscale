@@ -1,6 +1,6 @@
 ---
 - name: Restart headscale service
-  ansible.builtin.service:
+  ansible.builtin.systemd:
     name: headscale
     state: restarted
     enabled: true
@@ -8,7 +8,7 @@
   listen: 'restart headscale'
 
 - name: Reload headscale
-  ansible.builtin.service:
+  ansible.builtin.systemd:
     name: headscale
     state: reloaded
   listen: 'reload headscale'
