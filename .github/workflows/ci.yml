@@ -5,27 +5,21 @@ on:
   push:
     branches:
       - main
+      - dev
 defaults:
   run:
     working-directory: 'kazauwa.headscale'
 jobs:
   lint:
-    name: Lint
+    name: Ansible Lint
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the codebase.
-        uses: actions/checkout@v2
+      - name: Check out code
+        uses: actions/checkout@v4
         with:
           path: 'kazauwa.headscale'
 
-      - name: Set up Python 3.
-        uses: actions/setup-python@v2
+      - name: Run ansible-lint
+        uses: ansible/ansible-lint@v24
         with:
-          python-version: '3.x'
-
-      - name: Install test dependencies.
-        run: pip3 install ansible-lint==5.4.0 ansible-core==2.12
-
-      - name: Lint code.
-        run: |
-          ansible-lint .
+          working_directory: 'kazauwa.headscale'
