@@ -5,6 +5,8 @@
   loop: '{{ headscale_enable_routes }}'
   loop_control:
     label: '{{ item.comment | default(item) }}'
+  register: enable_routes_result
+  changed_when: enable_routes_result.stdout == ''
   when: not ansible_check_mode
 
 - name: Enable exit nodes
@@ -13,4 +15,6 @@
   loop: '{{ headscale_exit_nodes }}'
   loop_control:
     label: '{{ item.comment | default(item) }}'
+  register: enable_exit_nodes_result
+  changed_when: enable_exit_nodes_result.stdout == ''
   when: not ansible_check_mode

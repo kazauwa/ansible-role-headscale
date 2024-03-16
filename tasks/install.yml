@@ -17,11 +17,12 @@
 
 - name: Download headscale binary
   ansible.builtin.get_url:
+    # yamllint disable-line rule:line-length
     url: 'https://github.com/juanfont/headscale/releases/download/v{{ headscale_version }}/headscale_{{ headscale_version }}_{{ headscale_os }}_{{ headscale_arch }}'
     dest: '{{ headscale_binary_path }}'
     owner: '{{ headscale_user_uid }}'
     group: '{{ headscale_user_gid }}'
-    mode: 0770
+    mode: '0770'
   notify: restart headscale
 
 - name: Ensure headscale directories exist
@@ -30,7 +31,7 @@
     state: directory
     owner: '{{ headscale_user_name }}'
     group: '{{ headscale_user_group }}'
-    mode: 0755
+    mode: '0755'
   loop: '{{ headscale_directories }}'
 
 - name: Ensure sqlite exists
@@ -39,7 +40,7 @@
     state: touch
     owner: '{{ headscale_user_uid }}'
     group: '{{ headscale_user_gid }}'
-    mode: 0600
+    mode: '0600'
     modification_time: preserve
     access_time: preserve
 
@@ -49,7 +50,7 @@
     dest: '/etc/systemd/system/headscale.service'
     owner: '{{ headscale_user_uid }}'
     group: '{{ headscale_user_gid }}'
-    mode: 0600
+    mode: '0600'
   notify: restart headscale
 
 - name: Enable headscale service
