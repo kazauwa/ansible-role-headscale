@@ -15,17 +15,31 @@
     system: true
     create_home: false
 
+- name: Get release checksums
+  ansible.builtin.uri:
+    url: 'https://github.com/juanfont/headscale/releases/download/v{{ headscale_version }}/checksums.txt'
+    return_content: true
+  register: checksums_file
+
+- name: Parse checksums
+  ansible.builtin.set_fact:
+    headscale_checksums: '{{ checksums_file.content | split | reverse }}'
+
+- name: Parse checksums (cont.)
+  ansible.builtin.set_fact:
+    headscale_checksums: '{{ dict(headscale_checksums[::2] | zip_longest(headscale_checksums[1::2])) }}'
+
 - name: Download headscale binary
   ansible.builtin.get_url:
-    # yamllint disable-line rule:line-length
-    url: 'https://github.com/juanfont/headscale/releases/download/v{{ headscale_version }}/headscale_{{ headscale_version }}_{{ headscale_os }}_{{ headscale_arch }}'
+    url: 'https://github.com/juanfont/headscale/releases/download/v{{ headscale_version }}/{{ headscale_release_full }}'
     dest: '{{ headscale_binary_path }}'
+    checksum: 'sha256:{{ headscale_checksums[headscale_release_full] }}'
     owner: '{{ headscale_user_uid }}'
     group: '{{ headscale_user_gid }}'
     mode: '0770'
   notify: restart headscale
 
-- name: Ensure headscale directories exist
+- name: Ensure headscale paths exist
   ansible.builtin.file:
     path: '{{ item }}'
     state: directory
