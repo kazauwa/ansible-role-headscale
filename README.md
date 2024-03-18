@@ -1,7 +1,5 @@
 # Ansible Role for Headscale
 
-![CI](https://github.com/kazauwa/ansible-role-headscale/actions/workflows/ci.yml/badge.svg)
-
 A role that installs and manages [Headscale](https://github.com/juanfont/headscale) on Linux.
 
 ## Requirements
