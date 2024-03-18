@@ -53,6 +53,6 @@
   notify: restart headscale
 
 - name: Enable headscale service
-  ansible.builtin.systemd_service:
+  systemd_service:
     name: headscale
     enabled: true
