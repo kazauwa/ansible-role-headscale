@@ -17,7 +17,7 @@
 
 - name: Download headscale binary
   get_url:
-    url: 'https://github.com/juanfont/headscale/releases/download/v{{ headscale_version }}/headscale_{{ headscale_version }}_linux_{{ headscale_arch }}'
+    url: 'https://github.com/juanfont/headscale/releases/download/v{{ headscale_version }}/headscale_{{ headscale_version }}_{{ headscale_os }}_{{ headscale_arch }}'
     dest: '{{ headscale_binary_path }}'
     owner: '{{ headscale_user_uid }}'
     group: '{{ headscale_user_gid }}'
