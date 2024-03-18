@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## Unreleased
+
+### Breaking
+
+- Drop support for Ansible 2.9, migrate module names to FQCNs.
+
+### Fixed
+
+- Squished annoying bug that prevented redownloading binary on version, arch or OS change ([fb4c0bf](https://github.com/kazauwa/ansible-role-headscale/commit/fb4c0bf51d32e3c4ae24f79810a76d4260c3c1e1)).
+
 ## 1.4.0 (2024-03-18)
 
 ### Fixed
