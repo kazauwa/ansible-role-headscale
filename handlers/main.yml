@@ -6,9 +6,3 @@
     enabled: true
     daemon-reload: true
   listen: 'restart headscale'
-
-- name: Reload headscale
-  ansible.builtin.systemd:
-    name: headscale
-    state: reloaded
-  listen: 'reload headscale'
