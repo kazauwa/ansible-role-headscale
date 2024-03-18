@@ -1,13 +1,17 @@
 # Ansible Role for Headscale
 
 ![CI](https://github.com/kazauwa/ansible-role-headscale/actions/workflows/ci.yml/badge.svg)
-![Galaxy Role](https://img.shields.io/ansible/role/59047)
 
 A role that installs and manages [Headscale](https://github.com/juanfont/headscale) on Linux.
 
 ## Requirements
 
-- Ansible >= 2.9
+- Ansible >= 2.10
+
+## Installation
+```shell
+ansible-galaxy install kazauwa.headscale
+```
 
 ## Role Variables
 
@@ -72,7 +76,7 @@ None.
       roles:
         - kazauwa.headscale
       vars:
-        headscale_version: '0.20.0'
+        headscale_version: '0.22.3'
 
 ## License
 
