@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 1.4.0 (2024-03-18)
+
+### Fixed
+
+- Fixed faulty logic causing the role to fail on the initial run ([#5](https://github.com/kazauwa/ansible-role-headscale/pull/6)).
+
+### Changes
+
+- Parametrize target OS in headscale download link ([255be2b](https://github.com/kazauwa/ansible-role-headscale/commit/255be2b74954418e7085fa9e24d1a5e05d10e69c)).
+
 ## 1.3.1 (2023-08-09)
 
 ### Changes
