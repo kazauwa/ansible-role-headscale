@@ -4,12 +4,13 @@ on: [pull_request]
 defaults:
   run:
     working-directory: 'kazauwa.headscale'
+
 jobs:
   lint:
     name: Ansible Lint
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
+      - name: Checkout repo
         uses: actions/checkout@v4
         with:
           path: 'kazauwa.headscale'

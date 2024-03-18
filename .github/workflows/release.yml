@@ -13,13 +13,19 @@ on:
 defaults:
   run:
     working-directory: 'kazauwa.headscale'
+
 jobs:
   release:
     name: Release to galaxy
     runs-on: ubuntu-latest
     steps:
-      - name: galaxy
-        uses: robertdebock/galaxy-action@1.2.0
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push new version to galaxy
+        uses: ansible-actions/ansible-galaxy-action@v1.2.0
         with:
           galaxy_api_key: ${{ secrets.GALAXY_API_KEY }}
           git_branch: main
