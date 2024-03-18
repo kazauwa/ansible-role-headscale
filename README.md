@@ -4,7 +4,7 @@ A role that installs and manages [Headscale](https://github.com/juanfont/headsca
 
 ## Requirements
 
-- Ansible >= 2.10
+- Ansible >= 7
 
 ## Installation
 ```shell
@@ -19,6 +19,9 @@ ansible-galaxy install kazauwa.headscale
 - `headscale_arch`
   - Default: `amd64`
   - Description: headscale binary target architecture.
+- `headscale_os`
+  - Default: `linux`
+  - Description: headscale binary target OS.
 - `headscale_user_name`
   - Default: `headscale`
   - Description: name for service user for running Headscale binary.
