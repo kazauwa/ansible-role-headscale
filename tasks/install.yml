@@ -53,6 +53,6 @@
   notify: restart headscale
 
 - name: Enable headscale service
-  systemd_service:
+  systemd:
     name: headscale
     enabled: true
