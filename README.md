@@ -14,7 +14,7 @@ ansible-galaxy install kazauwa.headscale
 ## Role Variables
 
 - `headscale_version`
-  - Default: `0.22.3`
+  - Default: `0.23.0`
   - Description: version of Headscale to install. List of avaliable versions can be found on [official releases page](https://github.com/juanfont/headscale/releases). Defaults to the latest avaliable.
 - `headscale_arch`
   - Default: `amd64`
@@ -52,9 +52,9 @@ ansible-galaxy install kazauwa.headscale
 - `headscale_config_template`
   - Default: `""`
   - Description: path to Jinja2 formatted headscale config template. If present, will override `headscale_config`.
-- `headscale_acl`
-  - Default: `{}`
-  - Description: yaml formatted ACL policies. **Make sure** that you've read the [docs](https://github.com/juanfont/headscale/tree/main/docs#policy-acls) on how to use this feature.
+- `headscale_acl_file`
+  - Default: `""`
+  - Description: path to HuJSON formatted headscale acl file.
 - `headscale_users`
   - Default: `[]`
   - Description: list of users to create, e.g. to use with tagOwners.

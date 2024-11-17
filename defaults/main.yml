@@ -1,5 +1,5 @@
 ---
-headscale_version: '0.22.3'
+headscale_version: '0.23.0'
 headscale_os: 'linux'
 headscale_arch: 'amd64'
 headscale_user_name: 'headscale'
@@ -19,7 +19,7 @@ headscale_directories:
 
 headscale_config: {}
 headscale_config_template: ''
-headscale_acl: {}
+headscale_acl_file: ''
 headscale_users: []
 headscale_enable_routes: []
 headscale_exit_nodes: []
