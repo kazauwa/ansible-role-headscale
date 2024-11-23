@@ -54,7 +54,7 @@ ansible-galaxy install kazauwa.headscale
   - Description: path to Jinja2 formatted headscale config template. If present, will override `headscale_config`.
 - `headscale_acl_file`
   - Default: `""`
-  - Description: path to HuJSON formatted headscale acl file.
+  - Description: path to HuJSON formatted headscale acl file. **Make sure** that you've read the [docs](https://github.com/juanfont/headscale/blob/main/docs/ref/acls.md) on how to use this feature and the HuJSON syntax [acl-syntax](https://tailscale.com/kb/1337/acl-syntax).
 - `headscale_users`
   - Default: `[]`
   - Description: list of users to create, e.g. to use with tagOwners.
