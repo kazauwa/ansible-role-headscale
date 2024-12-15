@@ -18,11 +18,11 @@
     group: '{{ headscale_user_gid }}'
     mode: '0600'
   notify: restart headscale
-  
+
 - name: Copy ACL policies file
   when: headscale_acl_file
   ansible.builtin.copy:
-    src:  '{{ headscale_acl_file }}'
+    src: 'x{{ headscale_acl_file }}'
     dest: '{{ headscale_config_dir }}/acl.hujson'
     owner: '{{ headscale_user_uid }}'
     group: '{{ headscale_user_gid }}'
