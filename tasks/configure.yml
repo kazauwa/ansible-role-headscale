@@ -22,7 +22,7 @@
 - name: Copy ACL policies file
   when: headscale_acl_file
   ansible.builtin.copy:
-    src: 'x{{ headscale_acl_file }}'
+    src: '{{ headscale_acl_file }}'
     dest: '{{ headscale_config_dir }}/acl.hujson'
     owner: '{{ headscale_user_uid }}'
     group: '{{ headscale_user_gid }}'
