@@ -1,14 +1,13 @@
 # CHANGELOG
 
-## Unreleased
+## 2.1.0 (2025-02-25)
 
 ### Breaking
-[reff](https://github.com/juanfont/headscale/blob/a7874af3d0ba48913fa7e5fbffbb38b537bae7b3/CHANGELOG.md?plain=1#L74)
-- YAML files are no longer supported for headscale policy. [#1792](https://github.com/juanfont/OBheadscale/pull/1792)
+- YAML files are [no longer supported](https://github.com/juanfont/headscale/blob/a7874af3d0ba48913fa7e5fbffbb38b537bae7b3/CHANGELOG.md?plain=1#L74) for headscale policy. [#1792](https://github.com/juanfont/headscale/pull/1792)
   - HuJSON is now the only supported format for policy.
 
 ### Changed
-- Changed `headscale_acl` for `headscale_acl_file`. A file is now needed.
+- Changed `headscale_acl` for `headscale_acl_file`. A file is now required.
 
 ### Removed
 - Removed the capability of having ACL YAML formatted to be outputted to a file. ([0c79226](https://github.com/kazauwa/ansible-role-headscale/blob/1cbe9432ae53c3042a45506fd48f3dd203e24c97/tasks/configure.yml#L24))
